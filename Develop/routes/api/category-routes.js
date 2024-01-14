@@ -54,7 +54,6 @@
       catch(err) {
         console.log(err);
         res.status(500).json(err);
-
       }
     });
 
@@ -63,16 +62,18 @@
     // create a new category
     router.post('/', async (req, res) => {
       try {
-        const categoryDataNew =  await Category.create({
+        const categoryDataNew =  await Category.create(
+          {
           category_name: req.body.category_name
-        })
+          }
+        )
+
         res.json(categoryDataNew);
 
       }
       catch {
         console.log(err);
         res.status(500).json(err);
-
       }
      
     });
@@ -82,11 +83,34 @@
 
 
 
-  // ________________________  
+  // PUT update a category by its `id` value. ENDPOINT: /api/categories/<insert id here>______________________  
 
-    router.put('/:id', (req, res) => {
-      // update a category by its `id` value
-    });
+router.put('/:id', async (req, res) => {
+    try {
+        const categoryDataUpdate = await Category.update(
+            {
+              category_name: req.body.category_name,
+            },
+            {
+              where: {
+                  id: req.params.id,
+              },
+            }
+        );
+
+        if (categoryDataUpdate[0] === 0) {
+            res.status(404).json({ message: 'No category found with this id' });
+            return;
+        }
+
+        res.json({ message: 'Category updated successfully' });
+    }
+    catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 
 
   // __________________________
