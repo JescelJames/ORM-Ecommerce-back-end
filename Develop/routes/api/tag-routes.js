@@ -6,10 +6,10 @@
 
 //  TAG ROUTES. ENDPOINT: /api/tags
   // GET All Tags. 
-
+    // find all tags
+    // be sure to include its associated Product data
     router.get('/', async (req, res) => {
-      // find all tags
-      // be sure to include its associated Product data
+
       try {
         const tagDataAll = await Tag.findAll({
           include: {
@@ -26,14 +26,35 @@
     });
 
 
-
-
   // GET Tag By Id. ENDPOINT: api/tags/<insert id number>
-       // find a single tag by its `id`
+      // find a single tag by its `id`
       // be sure to include its associated Product data
-    router.get('/:id', (req, res) => {
+    
+    router.get('/:id', async (req, res) => {
+      try {
+        const tagDataId = await Tag.findOne({
+          where: {
+            id: req.params.id
+          },
+          include: {
+            model: Product
+          }
+        });
+        
+        if(!tagDataId) {
+          res.status(404).json({ message: 'No Tag found with this id'});
+          return;
+        }
+        res.json(tagDataId);
+      }
+      catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
 
     });
+
+
 
     router.post('/', (req, res) => {
       // create a new tag

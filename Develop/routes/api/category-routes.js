@@ -26,7 +26,7 @@
     });
   
     
-  // GET By Id ENDPOINT: /api/categories/<insert id number> 
+  // GET Category By Id. ENDPOINT: /api/categories/<insert id number> 
 
     router.get('/:id', async (req, res) => {
       try {
@@ -74,11 +74,6 @@
     });
   
 
-
-
-
-
-
   // PUT update a category by its `id` value. ENDPOINT: /api/categories/<insert id here>______________________  
 
     router.put('/:id', async (req, res) => {
@@ -107,7 +102,6 @@
             res.status(500).json(err);
         }
     });
-
 
 
   // DELETE / delete a category by its `id` value__________________________
