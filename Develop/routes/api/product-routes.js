@@ -39,16 +39,29 @@
     // be sure to include its associated Category and Tag data
   
     router.get('/:id', async (req, res) => {
-      await Product.findOne({
-
-
-
-
-
-        
-      })
-
-
+      try { 
+        const productDataId = await Product.findOne({
+          where: {
+            id: req.params.id,
+          },
+          attributes: ['id', 'product_name', 'price', 'stock'],
+          include: [
+            {
+              model: Category,
+              attributes: ['id', 'category_name'],
+            },
+            {
+              model: Tag,
+            }
+          ]
+        })
+        res.json(productDataId);
+      
+      } 
+      catch {
+        console.log(err);
+        res.status(500).json(err);
+      }
 
     });
 
@@ -58,16 +71,16 @@
 
 
 
-
-
-    // create new product
+  // POST Create A New Product
+    
     router.post('/', (req, res) => {
       /* req.body should look like this...
         {
-          product_name: "Basketball",
-          price: 200.00,
-          stock: 3,
-          tagIds: [1, 2, 3, 4]
+          "product_name": "Basketball",
+          "price": 200.00,
+          "stock": 3,
+          "category_id": 1
+          "tagIds": [1, 2, 3, 4]
         }
       */
       Product.create(req.body)
@@ -91,6 +104,12 @@
           res.status(400).json(err);
         });
     });
+
+
+
+
+
+
 
     // update product
     router.put('/:id', (req, res) => {
