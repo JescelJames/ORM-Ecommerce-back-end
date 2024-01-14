@@ -59,24 +59,21 @@
 
 
   // POST Create a new Category Name 
-    // create a new category
+    
     router.post('/', async (req, res) => {
       try {
-        const categoryDataNew =  await Category.create(
-          {
-          category_name: req.body.category_name
-          }
-        )
-
-        res.json(categoryDataNew);
-
+          const categoryDataNew = await Category.create({
+              category_name: req.body.category_name
+          });
+  
+          res.json(categoryDataNew);
       }
-      catch {
-        console.log(err);
-        res.status(500).json(err);
+      catch (err) { 
+          console.log(err);
+          res.status(500).json(err);
       }
-     
     });
+  
 
 
 
