@@ -15,8 +15,7 @@
                   attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
                 }
               ]
-
-            })
+            });
             res.json(categoryDataAll);
       } 
       catch (err) {
@@ -135,5 +134,6 @@
           }
       });
 
+// EXPORT ___________________
 
-module.exports = router;
+  module.exports = router;
