@@ -28,15 +28,13 @@
   
     
   // GET By Id ENDPOINT: /api/categories/<insert id number> 
-    // find one category by its `id` value
-    // be sure to include its associated Products
+
     router.get('/:id', async (req, res) => {
       try {
         const categoryDataId = await Category.findOne({
           where: {
             id: req.params.id,
           },
-          // attributes: ['id', 'category_name'],
           include: [
             {
               model: Product,
@@ -61,11 +59,28 @@
     });
 
 
-  // _______________  
+  // POST Create a new Category Name 
+    // create a new category
+    router.post('/', async (req, res) => {
+      try {
+        const categoryDataNew =  await Category.create({
+          category_name: req.body.category_name
+        })
+        res.json(categoryDataNew);
 
-    router.post('/', (req, res) => {
-      // create a new category
+      }
+      catch {
+        console.log(err);
+        res.status(500).json(err);
+
+      }
+     
     });
+
+
+
+
+
 
   // ________________________  
 
