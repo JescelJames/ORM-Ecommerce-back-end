@@ -40,7 +40,7 @@
           include: [
             {
               model: Product,
-              attributes: ['product_name'],
+              attributes: ['product_name', 'price', 'stock', 'category_id' ],
             },
           ],
 
@@ -49,6 +49,7 @@
           res.status(404).json({ message: 'No category found with this id' });
           return;
         }
+  
         res.json(categoryDataId);
 
       }
