@@ -85,7 +85,7 @@
                 },
                 {
                   where: {
-                      id: categoryId,
+                      id: categoryId
                   },
                 }
             );

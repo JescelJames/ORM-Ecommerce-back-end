@@ -4,8 +4,9 @@
   const { Tag, Product, ProductTag } = require('../../models');
 
 
-//  TAG ROUTES. ENDPOINT: /api/tags
-  // GET All Tags. 
+//  TAG ROUTES. ENDPOINT: /api/tags ___________________
+
+  // GET All Tags. __________________________________
     // find all tags
     // be sure to include its associated Product data
     router.get('/', async (req, res) => {
@@ -26,10 +27,9 @@
     });
 
 
-  // GET Tag By Id. ENDPOINT: api/tags/<insert id number>
+  // GET Tag By Id. ENDPOINT: api/tags/<insert id number> _______________
       // find a single tag by its `id`
       // be sure to include its associated Product data
-    
     router.get('/:id', async (req, res) => {
       try {
         const tagDataId = await Tag.findOne({
@@ -55,14 +55,55 @@
     });
 
 
+  // POST - Create a New Tag
+    router.post('/', async (req, res) => {
+      try {
+        const tagDataNew = await Tag.create({
+            tag_name: req.body.tag_name
+        });
 
-    router.post('/', (req, res) => {
-      // create a new tag
+        res.json(tagDataNew);
+      }
+      catch (err) { 
+          console.log(err);
+          res.status(500).json(err);
+      }
     });
 
-    router.put('/:id', (req, res) => {
-      // update a tag's name by its `id` value
+
+  // PUT - Update a Tag Name by its id value
+
+    router.put('/:id', async (req, res) => {
+      try {
+        const tagId = req.params.id;
+        const tagDataUpdate = await Tag.update(
+          {
+            tag_name: req.body.tag_name
+          },
+          {
+            where: {
+              id: tagId
+            }
+          }
+        );
+        if(tagDataUpdate[0] === 0) {
+          res.status(404).json({ message: 'No Tag found with this id'});
+          return;    
+        }
+        
+        res.json({ message: ` Tag id: ${tagId} updated successfully`});
+      }
+      catch(err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+
+
     });
+
+
+
+
 
     router.delete('/:id', (req, res) => {
       // delete on tag by its `id` value
