@@ -59,7 +59,7 @@
 
 
   // POST Create a new Category Name 
-    // create a new category
+    
     router.post('/', async (req, res) => {
       try {
           const categoryDataNew = await Category.create({

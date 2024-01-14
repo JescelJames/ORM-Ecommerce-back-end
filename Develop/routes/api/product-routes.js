@@ -79,7 +79,7 @@
           "product_name": "Basketball",
           "price": 200.00,
           "stock": 3,
-          "category_id": 1
+          "category_id": 1,
           "tagIds": [1, 2, 3, 4]
         }
       */
@@ -106,12 +106,7 @@
     });
 
 
-
-
-
-
-
-    // update product
+  // PUT Update Product By Id
     router.put('/:id', (req, res) => {
       // update product data
       Product.update(req.body, {
@@ -156,6 +151,8 @@
         });
     });
 
+
+    
     router.delete('/:id', (req, res) => {
       // delete one product by its `id` value
     });
