@@ -20,7 +20,7 @@ This challenge helps view and make changes to the current database for e-commerc
 
 - Repository Link:  https://github.com/JescelJames/ORM-Ecommerce-back-end
 
-- Video Link: 
+- Video Link: https://drive.google.com/file/d/145W-h7eP7akSE1swg_Ibr-NS1z0wWNdt/view
 
 
 
