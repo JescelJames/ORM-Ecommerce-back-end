@@ -64,7 +64,7 @@ Prerequisites:
 
 
  ## Usage
-1. Terminal instructions: (make sure you are in the db folder)
+1. Terminal instructions: 
       ```console
         mysql -u root -p
         (type in your password)
@@ -73,10 +73,7 @@ Prerequisites:
         npm run seed
         npm start
 
-      ```  
 
-
-        -
 
 
 ## Credits
