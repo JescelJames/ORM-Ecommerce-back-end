@@ -76,8 +76,10 @@ Prerequisites:
       ```console
         npm run seed
         npm start 
-        // or...
-        npm run dev (add this in package.json scripts "dev": "nodemon server.js")
+        // or instead of npm start, use nodemon:
+          npm i -D nodemon
+          add this in package.json scripts>> "dev": "nodemon server.js"
+          npm run dev
 
 
 ## Credits
