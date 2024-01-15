@@ -64,16 +64,19 @@ Prerequisites:
 
 
  ## Usage
-1. Terminal instructions: 
+1. Develop folder -> db folder -> right-click schema.sql -> click Open in Integrated Terminal
       ```console
         mysql -u root -p
         (type in your password)
-        source db/schema.sql
-        exit
+        source schema.sql
+
+
+2. right-click server.js -> click Open in Integrated Terminal
+      ```console
         npm run seed
-        npm start
-
-
+        npm start 
+        // or...
+        npm run dev (add this in package.json scripts "dev": "nodemon server.js")
 
 
 ## Credits
