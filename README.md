@@ -2,14 +2,14 @@
 ## My Challenge: Build the back end for an e-commerce site
 
 ## Description
-This challenge helps view and make changes to the current database for employees.
+This challenge helps view and make changes to the current database for e-commerce database.
 
 
-### This is a MySQL and Inquirer NPM challenge
+### This is a back-end for e-commerce site challenge
 
-- My motivation:  To query Employee Tracker database using MySQL and Inquirer
-- Why I took this challege: To learn learn and be comfortable with MySQL.
-- What the challenge solved:  The Employee Tracker can query and make changes in the database
+- My motivation:  To have a solid understanding of the relationships between MySQL, Sequelize, and Express
+- Why I took this challege: To understand the basic of back-end application with database.
+- What the challenge solved:  The back-end of the e-commerce site can query and manipulate the database.
 
 ### Video Demonstration
 
@@ -22,16 +22,24 @@ This challenge helps view and make changes to the current database for employees
 
 - Video Link: 
 
-- Deployed Link: https://jesceljames.github.io/ORM-Ecommerce-back-end
+
 
 
 
 ### What I learned:  
 
-1. MySQL database queries.
-2. Protecting password using .env and .gitignore   
-3. Connecting the database to javascript.
-4. Great refresher for inquirer prompts.
+1. Sequelize queries such as findAll, findOne, create, update, and destroy
+2. async, await makes it so much easier to read promises. 
+3. If statement for validation with res.json requires return.
+4. How routes index.js and api index.js talks to each other. 
+5. That even after I ran mysql, seed, and server, my database is blank unless I changed the sequelize sync force to false! sequelize.sync({ force: false}).  start with true, to start fresh, then change to false.
+6. Ctrl + d helps change string with the same name faster! and ../ moves up a folder. Thanks Max!
+7. .belongsTo, .hasMany, .belongsToMany is confusing at first, but it becomes easy to understand after seeing examples.
+8. Separated models in database make it easy to define.  Confusing at first, but once learned, its much easier to manipulate than MySQL commands.
+9. That long exposure to codes make it easier to understand and grasp the concept.
+
+
+
 
 
 ## Code Description
@@ -42,8 +50,12 @@ This challenge helps view and make changes to the current database for employees
 ## Installation Instructions
 
 Prerequisites:  
- - MySQL: Download at: https://www.mysql.com/
+
  - Nodejs: Download at: https://nodejs.org/en
+ - Express: https://expressjs.com/
+ - Sequelize: https://sequelize.org/
+ - MySQL: Download at: https://www.mysql.com/
+ - MySQL2: https://www.npmjs.com/package/mysql2
  - Insomnia:  https://insomnia.rest/products/insomnia
  
  
@@ -56,14 +68,13 @@ Prerequisites:
       ```console
         mysql -u root -p
         (type in your password)
-        source schema.sql
-        source seeds.sql
+        source db/schema.sql
         exit
-      ```  
-        
-        
+        npm run seed
+        npm start
 
-2. Command-line instructions:
+      ```  
+
 
         -
 
@@ -72,7 +83,7 @@ Prerequisites:
 
 #### My Instructors:
 - Ben Wright 
-- Max Ohsawa 
+- Max Ohsawa (Such a big help!)
 
 #### My Academic Advisor
 - Mike Sweeney
@@ -89,8 +100,7 @@ Prerequisites:
 - https://docs.insomnia.rest/insomnia/scratchpad
 
 
-#### Music while coding:
-- https://www.youtube.com/watch?v=tkgmYIsflSU&ab_channel=ChillMusicLab
+
 
 
 ## Contact
