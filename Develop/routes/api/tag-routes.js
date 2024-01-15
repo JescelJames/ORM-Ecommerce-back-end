@@ -6,9 +6,8 @@
 
 //  TAG ROUTES. ENDPOINT: /api/tags ___________________
 
-  // GET All Tags. __________________________________
-    // find all tags
-    // be sure to include its associated Product data
+  // GET All Tags --------------------------------
+
     router.get('/', async (req, res) => {
 
       try {
@@ -27,9 +26,8 @@
     });
 
 
-  // GET Tag By Id. ENDPOINT: api/tags/<insert id number> _______________
-      // find a single tag by its `id`
-      // be sure to include its associated Product data
+  // GET Tag By Id. ENDPOINT: api/tags/<insert id number> ----------------
+
     router.get('/:id', async (req, res) => {
       try {
         const tagDataId = await Tag.findOne({
@@ -55,7 +53,8 @@
     });
 
 
-  // POST - Create a New Tag
+  // POST - Create a New Tag ---------------------------
+
     router.post('/', async (req, res) => {
       try {
         const tagDataNew = await Tag.create({
@@ -71,7 +70,7 @@
     });
 
 
-  // PUT - Update a Tag Name by its id value
+  // PUT - Update a Tag Name by its id value ----------------
 
     router.put('/:id', async (req, res) => {
       try {
@@ -97,14 +96,11 @@
         console.log(err);
         res.status(500).json(err);
       }
-
-
     });
 
 
-
-
   // DELETE on tag by its `id` value
+
     router.delete('/:id', async (req, res) => {
       try {
         const tagId = req.params.id;

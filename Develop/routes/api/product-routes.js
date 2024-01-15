@@ -4,9 +4,8 @@
 
 // PRODUCT ROUTES. ENDPOINT:  /api/products ______________________________________
  
-  // GET All Products     
-    // find all products
-    // be sure to include its associated Category and Tag data
+  // GET All Products ------------------------------------
+
     router.get('/', async (req, res) => {
       try {
         const productDataAll = await Product.findAll({
@@ -34,9 +33,7 @@
     });
 
 
-  // GET One Product By Id. ENDPOINT:  /api/products/<insert product id> 
-    // find a single product by its `id`
-    // be sure to include its associated Category and Tag data
+  // GET One Product By Id. ENDPOINT:  /api/products/<insert product id> ----------
   
     router.get('/:id', async (req, res) => {
       try { 
@@ -71,7 +68,7 @@
 
 
 
-  // POST Create A New Product
+  // POST Create A New Product --------------------------
     
     router.post('/', (req, res) => {
       /* req.body should look like this...
@@ -106,7 +103,8 @@
     });
 
 
-  // PUT Update Product By Id
+  // PUT Update Product By Id ---------------------------
+
     router.put('/:id', (req, res) => {
       // update product data
       Product.update(req.body, {
@@ -152,7 +150,8 @@
     });
 
 
-  // DELETE  one product by its `id` value
+  // DELETE  one product by its `id` value ----------------------
+
     router.delete('/:id', async (req, res) => {
       try {
         const productId = req.params.id;
@@ -176,4 +175,7 @@
       
     });
 
-module.exports = router;
+// EXPORT ____________________________
+
+  module.exports = router;
+  
