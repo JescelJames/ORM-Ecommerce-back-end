@@ -164,11 +164,11 @@
         });
 
         if (productDataDelete === 0) {
-            res.status(404).json({ message: 'No category found with this id' });
+            res.status(404).json({ message: 'No product found with this id' });
             return;
         }
 
-        res.json({ message: `Category id: ${productId} deleted successfully` });
+        res.json({ message: `Product id: ${productId} deleted successfully` });
     } catch(err) {
         console.log(err);
         res.status(500).json(err);

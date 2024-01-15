@@ -15,8 +15,7 @@
                   attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
                 }
               ]
-
-            })
+            });
             res.json(categoryDataAll);
       } 
       catch (err) {
@@ -27,7 +26,7 @@
     });
   
     
-  // GET By Id ENDPOINT: /api/categories/<insert id number> 
+  // GET Category By Id. ENDPOINT: /api/categories/<insert id number> 
 
     router.get('/:id', async (req, res) => {
       try {
@@ -75,11 +74,6 @@
     });
   
 
-
-
-
-
-
   // PUT update a category by its `id` value. ENDPOINT: /api/categories/<insert id here>______________________  
 
     router.put('/:id', async (req, res) => {
@@ -91,7 +85,7 @@
                 },
                 {
                   where: {
-                      id: categoryId,
+                      id: categoryId
                   },
                 }
             );
@@ -108,7 +102,6 @@
             res.status(500).json(err);
         }
     });
-
 
 
   // DELETE / delete a category by its `id` value__________________________
@@ -135,5 +128,6 @@
           }
       });
 
+// EXPORT ___________________
 
-module.exports = router;
+  module.exports = router;
